@@ -3,9 +3,9 @@ import time
 import serial
 
 class PollArduino(Thread):
-    def __init__(self):
+    def __init__(self,port="/dev/ttyACM0"):
         Thread.__init__(self)
-        self.ser=serial.Serial('/dev/ttyACM0',9600)
+        self.ser=serial.Serial(port,9600)
         self.shared=""
         self.notStopping=True
         self.started=False
