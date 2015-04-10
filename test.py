@@ -6,7 +6,7 @@ import time
 
 arduino_parser=ArduinoParser()
 arduino_parser.setCutSymbole("#")
-arduino_parser.setParseRules(["x","y"]+ArduinoParser.esploraButtonsNames+["accx","accy","accz"],[ArduinoParser.defaultParse,ArduinoParser.defaultParse,ArduinoParser.esploraButtonParse,ArduinoParser.esploraButtonParse,ArduinoParser.esploraButtonParse,ArduinoParser.esploraButtonParse,ArduinoParser.esploraButtonParse,ArduinoParser.defaultParse,ArduinoParser.defaultParse,ArduinoParser.defaultParse])
+arduino_parser.setParseRules(["x","y"]+ArduinoParser.esploraButtonsNames+["accx","accy","accz"],[ArduinoParser.defaultParse for i in range(2)]+[ArduinoParser.esploraButtonParse for i in range(5)]+[ArduinoParser.defaultParse for i in range(3)])
 
 thread=PollArduino("/dev/ttyACM1")
 thread.start()
